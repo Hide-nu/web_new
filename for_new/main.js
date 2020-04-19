@@ -7,13 +7,13 @@ var chat = [
 ];
 
 
-//相手の返信の合計回数（最初は0）
-//これを利用して、自分が送信ボタンを押したときの相手の返答を配列から指定する
+//チャットボットの返信の合計回数（最初は0）
+//これを利用して、自分が送信ボタンを押したときの相手の返答を上のchat配列から指定する
 let chatCount = 0;
 
 
 //画面への出力
-//valはメッセージ内容，personは誰が話しているか
+//valはメッセージ内容，personはどちらが話しているか
 function output(val, person) {
   var chatBtn = document.getElementById('chat-button');
     var ul = document.getElementById('chat-ul');
@@ -22,16 +22,13 @@ function output(val, person) {
     var div = document.createElement('div');
     div.textContent = val;
 
-    //もしどこかでoutput('Hello', me)が実行されたらこれ
-    if (person === 'me') { //自分
+    //自分が送信したとき（me=自分）
+    if (person === 'me') {
         li.classList.add('chat-right');
         ul.appendChild(li);
         li.appendChild(div);
-    }else if (person === 'other') { //相手
-        //相手が2個連続で返信してくる時、その間は返信不可にする
-        //なぜなら、自分の返信を複数受け取ったことになり、その全てに返信してきてしまうから
-        //例："Hi!〇〇!"を複数など
-        //（今回の相手の連続返信は2個以内とする）
+    }else if (person === 'other') { //相手が送信したとき（other=相手)
+        //相手が返信している最中は自分が送信できないようにする
         chatBtn.disabled = true;
         setTimeout( ()=> {
             chatBtn.disabled = false;
@@ -51,13 +48,12 @@ function output(val, person) {
 function btnFunc() {
     var inputText = document.getElementById('chat-input');
     if (!inputText.value) return false;
-    //自分のテキストを送信
+    //自分が入力したテキストを送信
     output(inputText.value, 'me');
 
     setTimeout( ()=> {
         //入力内を空欄にする
         //一瞬の間でvalueを取得し、相手の"Hi!〇〇!"の返信に利用
-        //送信ボタンを押した瞬間にvalueを消したら、やまびこに失敗した
         inputText.value = '';
     }, 1);
 
