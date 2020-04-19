@@ -1,0 +1,141 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", YuGothic, "ヒラギノ角ゴ ProN W3", Hiragino Kaku Gothic ProN, Arial, "メイリオ", Meiryo, sans-serif;
+}
+h1{
+    font-size: 20px;
+    text-align: center;
+    margin-top: 10px;
+}
+/*チャットのフィールド*/
+#field{
+    width: 300px;
+    height: 230px;
+    padding: 7px 0 14px;
+    box-sizing: border-box;
+    background-color: #EEE;
+    margin: 0 auto;
+    background-color: #81AECF;
+    /*横向きのスクロール禁止*/
+    overflow-x: hidden;
+    /*縦向きのスクロール許可*/
+    overflow-y: scroll;
+    -webkit-overflow-scrolling: touch;
+}
+#input-field{
+    width: 300px;
+    height: 45px;
+    display: flex;
+    box-sizing: border-box;
+    border-bottom: 1px solid #777;
+    border-left: 1px solid #777;
+    border-right: 1px solid #777;
+    background-color: #FFF;
+    margin: 0 auto;
+}
+/*入力する場所*/
+#chat-input{
+    height: 25px;
+    width: 67%;
+    display: block;
+    font-size: 14px;
+  color: #000;
+    box-sizing: border-box;
+    border: 1px solid #777;
+    border-radius: 4px;
+    padding-left: 10px;
+    margin: auto 10px;
+}
+#chat-input:focus{
+    border: 1.3px solid #8873FF;
+    outline: 0;
+}
+/*送信ボタン*/
+#chat-button{
+    height: 25px;
+    width: 24%;
+    margin: auto ;
+    margin-right: 7%;
+    font-size: 13px;
+    background: #8873FF;
+    color: white;
+    display: block;
+    /*デフォルトのボーダーを消す*/
+    border: none;
+    box-sizing: border-box;
+    border-radius: 6.5px;
+}
+#chat-button:focus{
+    outline: 0;
+    background: #A899FF;
+}
+
+#chat-ul{
+    /*ulのデフォルの隙間を消す*/
+    padding: 0;
+    list-style: none;
+}
+#chat-ul li{
+    position: relative;
+  display:inline-bloc;
+    margin-top: 7px;
+    min-height: 23px;
+    max-width: 135px;
+    padding: 4px 13px;
+    box-sizing: border-box;
+    border-radius: 6px;
+    color: #000;
+    display: block;
+    word-wrap: break-word;
+}
+#chat-ul li div{
+    font-size: 15px;
+    line-height: 1.24em;
+}
+/*自分の吹き出し*/
+.chat-right{
+    margin-left: auto;
+    margin-right: 25px;
+    background: #A4E496;
+}
+/*吹き出しの矢印部分*/
+/*ひし形を利用します*/
+.chat-right::after{
+    position: absolute;
+    content: "";
+    height: 10px;
+    width: 10px;
+    top: 0;
+    margin-top: 12px;
+    margin-left: 119px;
+    display: block;
+    /*skewで歪ませ、rotateで回転*/
+    -webkit-transform: rotate(45deg) skew(-10deg, -10deg);
+    -moz-transform: rotate(45deg) skew(-10deg, -10deg);
+    -o-transform: Trotate(45deg) skew(-10deg, -10deg);
+    -ms-transform: rotate(45deg) skew(-10deg, -10deg);
+    transform-origin: 100% 0%;
+    background: #A4E496;
+}
+/*相手の吹き出しのデザイン*/
+.chat-left{
+    margin-left: 25px;
+    background: #FFF;
+}
+.chat-left::after{
+    position: absolute;
+    content: "";
+    height: 10px;
+    width: 10px;
+    top: 0;
+    margin-top: 12px;
+    margin-left: -14px;
+    display: block;
+    -webkit-transform: rotate(45deg) skew(-10deg, -10deg);
+    -moz-transform: rotate(45deg) skew(-10deg, -10deg);
+    -o-transform: rotate(45deg) skew(-10deg, -10deg);
+    -ms-transform: rotate(45deg) skew(-10deg, -10deg);
+    transform-origin: 100% 0%;
+    background: #FFF;
+}
