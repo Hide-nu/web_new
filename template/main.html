@@ -7,19 +7,19 @@
   <script type="text/javascript" src="main.js"></script>
 </head>
 <body>
+  <div class="container">
+    <h1>チャットボット</h1>
 
-  <h1>チャットボット</h1>
+    <!--画面-->
+    <div id="field">
+      <ul id="chat-ul"></ul>
+    </div>
 
-  <!--画面-->
-  <div id="field">
-    <ul id="chat-ul"></ul>
+    <!--入力場所，送信ボタン-->
+    <div id="input-field">
+      <input type="text" id="chat-input">
+      <input type="button" value="Send" id="chat-button" onclick="btnFunc()">
+    </div>
   </div>
-
-  <!--入力場所，送信ボタン-->
-  <div id="input-field">
-    <input type="text" id="chat-input">
-    <input type="button" value="Send" id="chat-button" onclick="btnFunc()">
-  </div>
-
 </body>
 </html>
