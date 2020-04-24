@@ -3,7 +3,7 @@ var chat = [
     'Hello ! Welcome to AI chat !',
     'What is your name ?',
     'How are you today ?',
-    [['Alright !'], ['Oh really!'], ['Ok!']]//ランダムな返答
+    'Alright !'
 ];
 
 
@@ -46,9 +46,15 @@ function output(val, person) {
 
 //送信ボタンを押した時の処理
 function btnFunc() {
+    // chat-inputのタグを取得しよう---------------------------------------------------------------
+
+
     var inputText = document.getElementById('chat-input');
+    // 何も入力されていなかったら何もしない
     if (!inputText.value) return false;
-    //自分が入力したテキストを送信
+    //自分が入力したテキストを送信しよう------------------------------------------------------------
+
+
     output(inputText.value, 'me');
 
     setTimeout( ()=> {
@@ -59,19 +65,24 @@ function btnFunc() {
 
     //相手の送信の合計回数に応じて次の返信を指定
     switch(chatCount) {
-        //もし相手のトーク数が2個の時に送信ボタンが押されたら、
-        //名前のやまびこと、chat配列の2（3個目）が返信
+        // 条件分岐させて、名前をやまびこさせよう
+        // 相手のトーク数が２のときは？
         case 2:
-            output('Hi, ' + inputText.value + ' !', 'other');
+            // ここで（ Hi, ~~入力名前~~ ! ）と表示--------------------------------------------------------
+
+
             setTimeout( ()=> {
-                output(chat[2], 'other');
+                // ここで、chat[2]を表示-------------------------------------------------------------------
+
+                
             }, 2000);
             break;
 
-        //もし相手のトーク数が4個の時に送信ボタンが押されたら、
-        //chat配列の3（4個目）のランダム番目が返信
+        //もし相手のトーク数が4個の時は？
         case 4:
-            output(chat[3][Math.floor(Math.random() * chat[3].length)], 'other');
+            // ここでchat[3]を表示--------------------------------------------------------------------
+
+
             break;
     }
 }
