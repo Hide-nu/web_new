@@ -65,7 +65,7 @@ function btnFunc() {
 
         //もしチャットボットのトーク数が4個の時に送信ボタンが押されたら、
         //chat配列の3（4個目）のランダム番目が返信
-        case :
+        case 3:
             output( , 'chat_bot');
             chatCount = chatCount + 1;
             break;
