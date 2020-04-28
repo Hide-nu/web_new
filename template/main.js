@@ -1,12 +1,3 @@
-//チャットボットの返答内容
-var chat = [
-    'Hello ! Welcome to AI chat !',
-    'What is your name ?',
-    'How are you today ?',
-    'Oh really!'
-];
-
-
 //画面への出力
 //valはメッセージ内容，personはどちらが話しているか
 function output(val, person) {
@@ -50,33 +41,27 @@ function btnFunc() {
     }, 1);
 
     //チャットボットの送信の合計回数に応じて次の返信を指定
-    switch(chatCount) {
-        //もしチャットボットのトーク数が2個の時に送信ボタンが押されたら、
-        //名前のやまびこと、chat配列の2（3個目）が返信
-        case 2:
-            output('Hi, ' + inputText.value + ' !\n' + chat[2], 'chat_bot');
+  if(chatCount==2){
+            output('How are you today ?', 'chat_bot');
             chatCount = chatCount + 1;
-            break;
+          }else if(chatCount==3){
 
-        //もしチャットボットのトーク数が4個の時に送信ボタンが押されたら、
-        //chat配列の3（4個目）のランダム番目が返信
-        case 3:
-            output(chat[3], 'chat_bot');
+            output('Oh really!', 'chat_bot');
             chatCount = chatCount + 1;
-            break;
     }
 }
-//チャットボットの返信の合計回数（最初は0）
-//これを利用して、自分が送信ボタンを押したときのチャットボットの返答を上のchat配列から指定する
-let chatCount = 0;
+//チャットボットの返信の合計回数
+//これを利用して、チャットボットの返答回数に応じた返答をする
+let chatCount;
 
 document.addEventListener("DOMContentLoaded", function(event) {
+  chatCount=0;
   //最初にチャットボットから話しかけられる
-  output(chat[0], 'chat_bot');
+  output('Hello ! Welcome to AI chat !', 'chat_bot');
   //チャットボットのトークの合計数に1足す
   chatCount = chatCount + 1;
   setTimeout( ()=> {
-    output(chat[1], 'chat_bot');
+    output('What is your name ?', 'chat_bot');
     chatCount = chatCount + 1;
   }, 2000);
 
