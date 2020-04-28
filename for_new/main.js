@@ -1,4 +1,3 @@
-
 //画面への出力
 //valはメッセージ内容，personはどちらが話しているか
 function output(val, person) {
@@ -30,39 +29,42 @@ function output(val, person) {
 let chatCount;
 
 //送信ボタンを押した時の処理
-function btnFunc() {
+function sendMyMessage() {
   // inputText変数に入力したテキストを代入する
-  var inputText = document.getElementById('');
-  // 入力が空ならここで終了する
-  if (!inputText.value) return false;
+  var inputText = document.getElementById('chat-input');
+  var message = inputText.value
   //自分が入力したテキストを送信
-  output(inputText.value, 'me');
+  output(message, 'me');
+  // 返事ができるようにしよう
+  replyToMessage(message)
+}
 
-  setTimeout( ()=> {
-    //入力内を空欄にする
-    inputText.value = '';
-  }, 1);
 
-  // チャットボットが返信する処理
-  //チャットボットの送信の合計回数に応じて次の返信を指定
-  if(chatCount==2) {
-    output('', 'chat_bot');
-    chatCount = chatCount + 1;
-  }else if(chatCount==3){
-    output('', 'chat_bot');
-    chatCount = chatCount + 1;
+// チャットボットが返信する処理
+function replyToMessage(message){
+  // 例
+  //送信メッセージに応じて返信を指定
+  if ( message == "jack" ) {
+    output("ようこそ", "chat_bot")
+  }
+  if ( message == "名古屋大学" ) {
+    output("よく燃える", "chat_bot")
+  }
+  if ( message != "jack" && message != "名古屋大学" ) {
+    output("すみませんよくわかりませんでした", "chat_bot")
   }
 }
 
+// 難しいので見なくていいよ！(興味あったら調べてね！)
 document.addEventListener("DOMContentLoaded", function(event) {
   //チャットボットの返信の合計回数（最初は0）
   chatCount=0;
   //最初にチャットボットから話しかけられる
-  output('Hello ! Welcome to AI chat !', 'chat_bot');
+  output('こんにちは! jackの新歓へようこそ!', 'chat_bot');
   //チャットボットのトークの合計数に1足す
   chatCount = chatCount + 1;
   setTimeout( ()=> {
-    output('What is your name ?', 'chat_bot');
+    output('名前を教えてください', 'chat_bot');
     chatCount = chatCount + 1;
   }, 2000);
 
