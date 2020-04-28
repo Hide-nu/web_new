@@ -30,11 +30,7 @@ let chatCount;
 
 //送信ボタンを押した時の処理
 function sendMyMessage() {
-  // inputText変数に入力したテキストを代入する
-  var inputText = document.getElementById('chat-input');
-  var message = inputText.value
-  //自分が入力したテキストを送信
-  output(message, 'me');
+
   // 返事ができるようにしよう
   replyToMessage(message)
 }
@@ -46,12 +42,6 @@ function replyToMessage(message){
   //送信メッセージに応じて返信を指定
   if ( message == "jack" ) {
     output("ようこそ", "chat_bot")
-  }
-  if ( message == "名古屋大学" ) {
-    output("よく燃える", "chat_bot")
-  }
-  if ( message != "jack" && message != "名古屋大学" ) {
-    output("すみませんよくわかりませんでした", "chat_bot")
   }
 }
 
