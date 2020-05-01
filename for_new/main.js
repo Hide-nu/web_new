@@ -30,9 +30,15 @@ let chatCount;
 
 //送信ボタンを押した時の処理
 function sendMyMessage() {
+  //messageに入力した値を代入しよう！
+
+
+
+  //下のoutputの引数を修正して入力された値を表示させよう！
+  output('jack', 'me')
 
   // 返事ができるようにしよう
-  replyToMessage(message)
+  //replyToMessage(message)
 }
 
 
